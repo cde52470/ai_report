@@ -1,0 +1,47 @@
+.home-container {
+  max-width: 960px;
+  margin: auto;
+  padding: 40px;
+}
+
+.home-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.home-form {
+  margin-bottom: 40px;
+}
+
+.home-input {
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.home-button {
+  padding: 10px 20px;
+}
+
+.home-subtitle {
+  margin-bottom: 10px;
+}
+
+.presentation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.presentation-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: box-shadow 0.2s ease;
+}
+
+.presentation-card:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}

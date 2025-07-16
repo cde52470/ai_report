@@ -1,0 +1,85 @@
+/* src/Presentation.css */
+
+.presentation-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.presentation-header {
+  margin-bottom: 20px;
+}
+
+.slide-canvas {
+  width: 794px;
+  height: 1123px;
+  margin: auto;
+  background: white;
+  border: 2px solid #a58af0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+
+.text-box {
+  width: 80%;
+  min-height: 100px;
+  border: 1px dashed #888;
+  padding: 10px;
+  font-size: 18px;
+  outline: none;
+  white-space: pre-wrap;
+}
+
+.page-thumbnails {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 60px;
+  height: 80px;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.thumbnail.active {
+  border-color: #a58af0;
+  box-shadow: 0 0 5px #a58af0;
+}
+
+.add-page-btn {
+  width: 40px;
+  height: 80px;
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+  background-color: #eaeaea;
+  border-radius: 5px;
+}
+
+.export-pdf-mode {
+  position: absolute;
+  left: -9999px;
+  width: 794px;
+  height: 1123px;
+  background-color: white;
+  border: 2px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
