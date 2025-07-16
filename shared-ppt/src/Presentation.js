@@ -1,7 +1,15 @@
 // src/Presentation.js
 import React, { useEffect, useState } from "react";
-import { db } from "./firebase";
-import { doc, getDocs, collection, query, where } from "firebase/firestore";
+import { db, auth } from "./firebase";
+import {
+  updateDoc,
+  doc,
+  getDocs,
+  collection,
+  query,
+  where,
+  Timestamp
+} from "firebase/firestore";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Presentation.css";
 
@@ -45,30 +53,40 @@ export default function Presentation() {
     }
     pdf.save(`${filename || "presentation"}.pdf`);
     };
-  //----------
-
+  
+  //--更新簡報資訊給firebase------------------
   useEffect(() => {
-    async function fetchPresentation() {
-      try {
-        const q = query(
-          collection(db, "presentations"),
-          where("code", "==", code)
-        );
-        const snapshot = await getDocs(q);
-        if (!snapshot.empty) {
-          setPresentation(snapshot.docs[0].data());
-        } else {
-          alert("找不到該簡報");
-          navigate("/create");
+  async function fetchPresentation() {
+    try {
+      const q = query(
+        collection(db, "presentations"),
+        where("code", "==", code)
+      );
+      const snapshot = await getDocs(q);
+      if (!snapshot.empty) {
+        const docRef = snapshot.docs[0].ref;
+        setPresentation(snapshot.docs[0].data());
+
+        // 更新 lastAccessBy
+        const user = auth.currentUser;
+        if (user) {
+          await updateDoc(docRef, {
+            [`lastAccessBy.${user.uid}`]: Timestamp.now()
+          });
         }
-      } catch (error) {
-        console.error("讀取簡報失敗：", error);
+      } else {
+        alert("找不到該簡報");
+        navigate("/create");
       }
+    } catch (error) {
+      console.error("讀取簡報失敗：", error);
     }
+  }
 
-    fetchPresentation();
-  }, [code, navigate]);
+  fetchPresentation();
+}, [code, navigate]);
 
+  //------------------------
   const handleTextChange = (e) => {
     const newPages = [...pages];
     newPages[currentPage].text = e.target.innerText;

@@ -45,3 +45,68 @@
 .presentation-card:hover {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }
+
+
+
+
+
+.home-container {
+  max-width: 960px;
+  margin: auto;
+  padding: 40px;
+}
+
+.home-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.home-subtitle {
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.home-form {
+  margin-bottom: 30px;
+}
+
+.home-input {
+  padding: 10px;
+  width: 300px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.home-button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.home-button:hover {
+  background-color: #45a049;
+}
+
+.presentation-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.presentation-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: box-shadow 0.2s ease;
+}
+
+.presentation-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
